@@ -1,27 +1,6 @@
 build_settings:
     clone_depth: 1 # depth of 1 is a shallow clone, remove this line to clone entire repo
-    mysql:
-        host: "localhost"
-        user: "phpci"
-        pass: "phpci"
-
-setup:
-    mysql:
-        - "DROP DATABASE IF EXISTS phpci_test;"
-        - "CREATE DATABASE phpci_test;"
-        - "GRANT ALL PRIVILEGES ON phpci_test.* TO phpci_test@'localhost' IDENTIFIED BY 'phpci_test';"
-    composer:
-        action: "install"
-
 test:
-    php_unit:
-        config:
-            - "PHPUnit-all.xml"
-            - "PHPUnit-ubuntu-fix.xml"
-        directory:
-            - "tests/"
-        run_from: "phpunit/"
-        coverage: "tests/logs/coverage"
     php_mess_detector:
         allow_failures: true
     php_code_sniffer:
@@ -30,10 +9,3 @@ test:
         allow_failures: true
     grunt:
         task: "build"
-
-complete:
-    mysql:
-        host: "localhost"
-        user: "phpci"
-        pass: "phpci"
-        - "DROP DATABASE IF EXISTS phpci_test;"
