@@ -3,7 +3,7 @@
       /** Loggers attached to every command */
       "_" => function () {
           return array(
-              new \Monolog\Handler\StreamHandler('path/to/log', \Monolog\Logger::ERROR),
+              new \Monolog\Handler\StreamHandler('/var/www/html/log', \Monolog\Logger::ERROR),
           );
       }
   );
