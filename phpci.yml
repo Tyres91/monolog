@@ -1,11 +1,12 @@
 build_settings:
-    clone_depth: 1 # depth of 1 is a shallow clone, remove this line to clone entire repo
+    verbose: false
+    prefer_symlink: false
+
+setup:
+
 test:
-    php_mess_detector:
-        allow_failures: true
-    php_code_sniffer:
-        standard: "PSR2"
-    php_cpd:
-        allow_failures: true
-    grunt:
-        task: "build"
+    php_unit:
+        directory: "test/phpunit/"
+        args: "--bootstrap 'test/phpunit/bootstrap.php' --configuration 'test/phpunit/phpunit.xml'"
+
+complete:
