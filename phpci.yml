@@ -1,24 +1,3 @@
-build_settings:
-    ignore:
-        - "vendor"
-        - "tests"
-        - "docs"
- 
-setup:
-    composer:
-        action: "install"
- 
 test:
-    php_unit:
-    php_loc:
-    php_cpd:
-        allow_failures: true
-    php_mess_detector:
-        allow_failures: true
-        zero_config: true # do not make build as failed if something was detected
-    php_code_sniffer:
-        standard: "PSR2"
-        allowed_warnings: 0
-        allowed_errors: 0
     php_docblock_checker:
         allowed_warnings: -1 # Allow unlimited warnings for now.
